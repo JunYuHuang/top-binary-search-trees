@@ -29,10 +29,13 @@ rspec Tree.spec.rb
 1. [x] Write `Node` class
 1. [x] Write `Tree` class
 1. [x] Write `Tree#build_tree` method
-1. [ ] Write `Tree#insert` and `Tree#delete` methods
+1. [x] Write `Tree#insert` method
+1. [ ] Write `Tree#delete` method
 1. [ ] Write `Tree#find` method
 1. [ ] Write `Tree#level_order` method
-1. [ ] Write `Tree#inorder`, `Tree#preorder`, and `Tree#postorder` methods
+1. [ ] Write `Tree#inorder` method
+1. [ ] Write `Tree#preorder` method
+1. [ ] Write `Tree#postorder` method
 1. [ ] Write `Tree#height` method
 1. [ ] Write `Tree#depth` method
 1. [ ] Write `Tree#balanced?` method
@@ -62,6 +65,46 @@ rspec Tree.spec.rb
   - build_tree(sorted_arr)
     - recursively build BST from sorted array of ints
     - returns root node of BST
+  - insert(value)
+    - summary
+      - find a target leaf node or node with 1 child
+      - attach new node to target as target's L or R child
+    - return if `value` already exists in the tree
+    - if @`root` is null,
+      - set @`root` to new node with `value` and return
+    - parent = null
+    - curr = root
+    - while curr is not null
+      - parent = curr
+      - if curr's value < value
+        - curr = curr.right
+      - else curr's value > value (b/c we filtered out duplicates)
+        - curr = curr.left
+    - create new node `new_node` with `value`
+    - if `value` > parent's value
+      - parent.right = `new_node`
+    - else
+      - parent.left = `new_node`
+  - delete(value)
+    - TODO
+  - find(value)
+    - TODO
+  - level_order(&block)
+    - TODO
+  - inorder(&block)
+    - TODO
+  - preorder(&block)
+    - TODO
+  - postorder(&block)
+    - TODO
+  - height(node)
+    - TODO
+  - depth(node)
+    - TODO
+  - balanced?
+    - TODO
+  - rebalance
+    - TODO
 
 ## Misc Notes
 

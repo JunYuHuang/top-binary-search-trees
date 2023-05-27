@@ -23,7 +23,31 @@ class Tree
   end
 
   def insert(value)
-    # TODO
+    return if @unique.include?(value)
+
+    new_node = Node.new(value)
+
+    unless @root
+      @root = new_node
+      return
+    end
+
+    parent = nil
+    curr = @root
+    while curr
+      parent = curr
+      if curr < value
+        curr = curr.right
+      else # curr > value
+        curr = curr.left
+      end
+    end
+
+    if parent < value
+      parent.right = new_node
+    else
+      parent.left = new_node
+    end
   end
 
   def delete(value)

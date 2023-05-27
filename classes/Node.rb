@@ -4,6 +4,7 @@ class Node
   def <=>(other)
     # consider Node to be "greater" than nil / null
     return 1 if other.nil?
+    return @data.to_i <=> other if other.class == Integer
     @data.to_i <=> other.data.to_i
   end
 
