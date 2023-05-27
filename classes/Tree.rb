@@ -1,15 +1,25 @@
+require 'set'
+require_relative 'Node'
+
 class Tree
-  def initialize(values)
-    # TODO
-    # builds BST with `values` array
-    @root = nil
+  def initialize(values = [])
+    values = values.uniq.sort
+    @unique = Set.new(values)
+    @root = build_tree(values)
   end
 
-  def build_tree(values)
-    # TODO
-    # builds BST with `values` array
-    # returns level-0 root node
-    @root
+  attr_accessor(:unique)
+  attr_accessor(:root)
+
+  def build_tree(sorted_arr = [])
+    return nil if sorted_arr.empty?
+
+    mid = (0 + sorted_arr.size - 1) / 2
+    root = Node.new(sorted_arr[mid])
+    root.left = build_tree(sorted_arr[0...mid])
+    root.right = build_tree(sorted_arr[mid + 1..-1])
+
+    root
   end
 
   def insert(value)
