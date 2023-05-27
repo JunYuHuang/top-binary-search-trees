@@ -31,4 +31,18 @@ RSpec.describe 'Node class' do
       expect(node.right).to eq(right_node)
     end
   end
+
+  describe "<=>" do
+    it "returns 1 if called with a node with value 0 on a node with value 1" do
+      expect(Node.new(1) <=> Node.new(0)).to eq(1)
+    end
+
+    it "returns -1 if called with a node with value 1 on a node with value 0" do
+      expect(Node.new(0) <=> Node.new(1)).to eq(-1)
+    end
+
+    it "returns 0 if called with a node with value 3 on a node with value 3" do
+      expect(Node.new(3) <=> Node.new(3)).to eq(0)
+    end
+  end
 end

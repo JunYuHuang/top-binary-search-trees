@@ -30,6 +30,7 @@ rspec Tree.spec.rb
 - [x] split `index_spec.rb` into separate test files under a new `/specs` folder
 - [x] move `spec_helper.rb` into the new `/specs` folder
 - [x] create a `driver.rb` file at the root directory
+- [x] update `Node` class to include and use `Comparable` module
 - [ ] update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
 
 ## Planning Notes
@@ -37,3 +38,5 @@ rspec Tree.spec.rb
 - no duplicate values
   - remove duplicate values OR
   - check for existing values before inserting
+- `Tree` class
+  - use a set to check for duplicate values
