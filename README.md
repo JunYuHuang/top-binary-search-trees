@@ -24,15 +24,30 @@ rspec Node.spec.rb
 rspec Tree.spec.rb
 ```
 
-## TODOs
+## Assignment TODOs
 
-- [x] split `index.rb` into separate class files under a new `/classes` folder
-- [x] split `index_spec.rb` into separate test files under a new `/specs` folder
-- [x] move `spec_helper.rb` into the new `/specs` folder
-- [x] create a `driver.rb` file at the root directory
-- [x] update `Node` class to include and use `Comparable` module
-- [x] fix `Tree#build_tree` method to work
-- [ ] update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
+1. [x] Write `Node` class
+1. [x] Write `Tree` class
+1. [x] Write `Tree#build_tree` method
+1. [ ] Write `Tree#insert` and `Tree#delete` methods
+1. [ ] Write `Tree#find` method
+1. [ ] Write `Tree#level_order` method
+1. [ ] Write `Tree#inorder`, `Tree#preorder`, and `Tree#postorder` methods
+1. [ ] Write `Tree#height` method
+1. [ ] Write `Tree#depth` method
+1. [ ] Write `Tree#balanced?` method
+1. [ ] Write `Tree#rebalance` method
+1. [ ] Write `driver.rb` script that does some stuff
+
+## My TODOs
+
+- [x] Split `index.rb` into separate class files under a new `/classes` folder
+- [x] Split `index_spec.rb` into separate test files under a new `/specs` folder
+- [x] Move `spec_helper.rb` into the new `/specs` folder
+- [x] Create a `driver.rb` file at the root directory
+- [x] Update `Node` class to include and use `Comparable` module
+- [x] Fix `Tree#build_tree` method to work
+- [ ] Update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
 
 ## Planning Notes
 
