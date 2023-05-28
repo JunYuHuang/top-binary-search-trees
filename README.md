@@ -31,7 +31,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#build_tree` method
 1. [x] Write `Tree#insert` method
 1. [ ] Write `Tree#delete` method
-1. [ ] Write `Tree#find` method
+1. [x] Write `Tree#find` method
 1. [ ] Write `Tree#level_order` method
 1. [ ] Write `Tree#inorder` method
 1. [ ] Write `Tree#preorder` method
@@ -86,7 +86,29 @@ rspec Tree.spec.rb
     - else
       - parent.left = `new_node`
   - delete(value)
-    - TODO
+    - return if @`root` is null
+    - parent = null
+    - curr = @`root`
+    - while curr is not null
+      - parent = curr
+      - if curr's value == value
+        - break out of loop
+      - else if curr's value < value
+        - curr = curr.right
+      - else curr's value > value
+        - curr = curr.left
+    - return if curr is null (means didn't find value)
+    - if curr has L & R children
+      - TODO
+    - else if curr has either L XOR C child only
+      - save pointer `child` to curr's L or R child
+      - curr.right = null
+      - if parent's value > child's value
+        - parent.left = child
+      - else
+        - parent.right = child
+    - else curr is leaf node
+      - isLeft? parent.left = null : parent.right = null
   - find(value)
     - TODO
   - level_order(&block)

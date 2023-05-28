@@ -55,8 +55,20 @@ class Tree
   end
 
   def find(value)
-    # TODO
-    # returns node with whose `data`'s attribute equals `value`
+    return nil unless @root
+
+    curr = @root
+    while curr
+      if curr == value
+        return curr
+      elsif curr < value
+        curr = curr.right
+      else # curr > value
+        curr = curr.left
+      end
+    end
+
+    nil
   end
 
   def level_order(&block)

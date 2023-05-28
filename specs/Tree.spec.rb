@@ -48,4 +48,26 @@ RSpec.describe 'Tree class' do
       expect(bst.root.right.left).to eq(40)
     end
   end
+
+  describe "find" do
+    it "returns nil if called with any integer value on an empty BST" do
+      bst = Tree.new()
+      expect(bst.find(0)).to eq(nil)
+    end
+
+    it "returns nil if called with 40 on a non-empty BST that does not have a node with value 40" do
+      bst = Tree.new([10,20,30,100,500])
+      expect(bst.find(40)).to eq(nil)
+    end
+
+    it "returns the found node if called with 1 on a 5-node sized BST that has a node with value 1" do
+      bst = Tree.new([1,2,3,4,5])
+      expect(bst.find(1).data).to eq(1)
+    end
+
+    it "returns the found node if called with 5 on a 5-node sized BST that has a node with value 5" do
+      bst = Tree.new([1,2,3,4,5])
+      expect(bst.find(5).data).to eq(5)
+    end
+  end
 end
