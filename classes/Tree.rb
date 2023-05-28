@@ -72,9 +72,21 @@ class Tree
   end
 
   def level_order(&block)
-    # TODO
-    # yields each node to the block `&block`
-    # returns array of node values from the BST traversed in BFS level order
+    return block_given? ? nil : [] unless @root
+
+    queue = [@root]
+    res = []
+    while queue.size > 0
+      queue_len = queue.size
+      queue_len.times do |i|
+        curr = queue.shift
+        block.call(curr) if block_given?
+        res.push(curr.data)
+        queue.push(curr.left) if curr.left
+        queue.push(curr.right) if curr.right
+      end
+    end
+    block_given? ? nil : res
   end
 
   def inorder(&block)

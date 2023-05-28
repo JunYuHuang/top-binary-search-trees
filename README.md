@@ -32,7 +32,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#insert` method
 1. [ ] Write `Tree#delete` method
 1. [x] Write `Tree#find` method
-1. [ ] Write `Tree#level_order` method
+1. [x] Write `Tree#level_order` method
 1. [ ] Write `Tree#inorder` method
 1. [ ] Write `Tree#preorder` method
 1. [ ] Write `Tree#postorder` method
