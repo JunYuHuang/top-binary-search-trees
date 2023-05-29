@@ -90,9 +90,22 @@ class Tree
   end
 
   def inorder(&block)
-    # TODO
-    # yields each node to the block `&block`
-    # returns array of node values from the BST traversed in inorder order
+    return block_given? ? nil : [] unless @root
+
+    def dfs(curr, &block)
+      return [] unless curr
+
+      res = []
+      block.call(curr) if block_given?
+      res.push(curr.data)
+      res.concat(dfs(curr.left, &block))
+      res.concat(dfs(curr.right, &block))
+      res
+    end
+
+    res = dfs(@root, &block)
+
+    block_given? ? nil : res
   end
 
   def preorder(&block)
