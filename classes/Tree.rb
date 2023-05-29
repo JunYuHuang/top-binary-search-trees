@@ -126,9 +126,21 @@ class Tree
   end
 
   def postorder(&block)
-    # TODO
-    # yields each node to the block `&block`
-    # returns array of node values from the BST traversed in postorder order
+    return block_given? ? nil : [] unless @root
+
+    def dfs(curr, &block)
+      return [] unless curr
+
+      res = []
+      res.concat(dfs(curr.left, &block))
+      res.concat(dfs(curr.right, &block))
+      block_given? ? block.call(curr) : res.push(curr.data)
+      res
+    end
+
+    res = dfs(@root, &block)
+
+    block_given? ? nil : res
   end
 
   def height(node)
