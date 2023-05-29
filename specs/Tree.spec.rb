@@ -301,4 +301,41 @@ RSpec.describe 'Tree class' do
       expect(bst.depth(node)).to eq(2)
     end
   end
+
+  describe "balanced?" do
+    it "returns true if called on an empty BST" do
+      bst = Tree.new
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called with on a 1-node sized BST" do
+      bst = Tree.new([1])
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called with on a 2-node sized BST" do
+      bst = Tree.new([1,2])
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called with on an 7-node sized perfectly balanced BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called with on a certain 4-node sized BST" do
+      bst = Tree.new([1,3,5,7])
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called with on a certain 5-node sized BST" do
+      bst = Tree.new([1,3,5,7,9])
+      expect(bst.balanced?).to eq(true)
+    end
+
+    it "returns true if called on a certain 6-node sized BST" do
+      bst = Tree.new([10,20,30,40,100,500])
+      expect(bst.balanced?).to eq(true)
+    end
+  end
 end

@@ -183,9 +183,28 @@ class Tree
   end
 
   def balanced?
-    # TODO
-    # returns true if BST is balanced else false
-    # balanced IFF every height diff of L & R subtrees of every node is <= 1
+    # height balanced IFF every height diff of L & R subtrees of every node is <= 1
+    # define null nodes as having height 0
+    return true unless @root
+
+    def dfs(node)
+      return { balanced: true, height: 0 } unless node
+
+      left = dfs(node.left)
+      right = dfs(node.right)
+      is_balanced = (
+        left[:balanced] &&
+        right[:balanced] &&
+        (left[:height] - right[:height]).abs <= 1
+      )
+
+      {
+        balanced: is_balanced,
+        height: 1 + [left[:height], right[:height]].max
+      }
+    end
+
+    dfs(@root)[:balanced]
   end
 
   def rebalance

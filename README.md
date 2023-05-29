@@ -38,7 +38,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#postorder` method
 1. [x] Write `Tree#height` method
 1. [x] Write `Tree#depth` method
-1. [ ] Write `Tree#balanced?` method
+1. [x] Write `Tree#balanced?` method
 1. [ ] Write `Tree#rebalance` method
 1. [ ] Write `driver.rb` script that does some stuff
 
@@ -109,23 +109,6 @@ rspec Tree.spec.rb
         - parent.right = child
     - else curr is leaf node
       - isLeft? parent.left = null : parent.right = null
-  - find(value)
-    - TODO
-  - level_order(&block)
-    - TODO
-  - inorder(&block)
-    - TODO
-  - preorder(&block)
-    - TODO
-  - postorder(&block)
-    - TODO
-  - height(node)
-    - return -1 if null root or null node
-    - TODO
-  - depth(node)
-    - TODO
-  - balanced?
-    - TODO
   - rebalance
     - TODO
 
