@@ -50,6 +50,10 @@ rspec Tree.spec.rb
 - [x] Create a `driver.rb` file at the root directory
 - [x] Update `Node` class to include and use `Comparable` module
 - [x] Fix `Tree#build_tree` method to work
+- [x] Implement `Tree#delete` method for deleting leaf nodes
+- [x] Implement `Tree#delete` method for deleting nodes with 1 child (left XOR right) only
+- [ ] Implement `Tree#delete` method for deleting nodes with both left and right children
+- [ ] Complete `Tree#replace` helper method (for `Tree#delete` method to use delete nodes with both left and right children)
 - [ ] Update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
 
 ## Planning Notes
@@ -58,7 +62,7 @@ rspec Tree.spec.rb
   - remove duplicate values OR
   - check for existing values before inserting
 - `Tree` class
-  - uses a set to check for duplicate values
+  - checks a set for duplicate values before inserting new nodes
   - constructor(values)
     - remove all duplicate values from and sort `values`
     - @`root` = `build_tree(values)`
@@ -85,6 +89,10 @@ rspec Tree.spec.rb
       - parent.right = `new_node`
     - else
       - parent.left = `new_node`
+  - replace(value)
+    - helper function used by `delete()` method for deleting nodes that have both L & R children
+    - TODO
+
   - delete(value)
     - return if @`root` is null
     - parent = null
@@ -100,6 +108,7 @@ rspec Tree.spec.rb
     - return if curr is null (means didn't find value)
     - if curr has L & R children
       - TODO
+      - call `replace(curr)` on it
     - else if curr has either L XOR C child only
       - save pointer `child` to curr's L or R child
       - curr.right = null
@@ -108,7 +117,10 @@ rspec Tree.spec.rb
       - else
         - parent.right = child
     - else curr is leaf node
-      - isLeft? parent.left = null : parent.right = null
+      - if parent's value > curr's value
+        - parent.left = null
+      - else
+        - parent.right = null
 
 ## Misc Notes
 

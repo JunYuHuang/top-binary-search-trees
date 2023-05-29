@@ -48,10 +48,65 @@ class Tree
     else
       parent.left = new_node
     end
+
+    @unique.add(value)
+    nil
+  end
+
+  # helper method for `Tree#delete` method
+  def replace(node)
+    return if !root or !@unique.include?(node.data)
+
+    # TODO
   end
 
   def delete(value)
-    # TODO
+    return unless @root
+
+    parent = nil
+    curr = @root
+    while curr
+      if curr == value
+        break
+      elsif curr < value
+        parent = curr
+        curr = curr.right
+      else # curr > value
+        parent = curr
+        curr = curr.left
+      end
+    end
+
+    return unless curr
+
+    if curr.left && curr.right
+      replace(curr)
+    elsif curr.left
+      child = curr.left
+      if curr == @root
+        @root = child
+      elsif parent
+        parent > curr ? parent.left = child : parent.right = child
+      end
+      curr.left = nil
+    elsif curr.right
+      child = curr.right
+      if curr == @root
+        @root = child
+      elsif parent
+        parent > curr ? parent.left = child : parent.right = child
+      end
+      curr.right = nil
+    else # curr is leaf node
+      if curr == @root
+        @root = nil
+      else
+        parent > curr ? parent.left = nil : parent.right = nil
+      end
+    end
+
+    @unique.delete(value)
+    nil
   end
 
   def find(value)
