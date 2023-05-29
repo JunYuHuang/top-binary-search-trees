@@ -225,4 +225,42 @@ RSpec.describe 'Tree class' do
       expect(block_res).to eq(block_expected)
     end
   end
+
+  describe "depth" do
+    it "returns -1 if called with any node on an empty BST" do
+      bst = Tree.new
+      node = bst.find(0)
+      expect(bst.depth(node)).to eq(-1)
+    end
+
+    it "returns -1 if called with a non-existent node on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(8)
+      expect(bst.depth(node)).to eq(-1)
+    end
+
+    it "returns 0 if called with the root node on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.root
+      expect(bst.depth(node)).to eq(0)
+    end
+
+    it "returns 1 if called with the node with value 2 on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(2)
+      expect(bst.depth(node)).to eq(1)
+    end
+
+    it "returns 2 if called with the node with value 3 on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(3)
+      expect(bst.depth(node)).to eq(2)
+    end
+
+    it "returns 2 if called with the node with value 500 on an 6-node sized BST" do
+      bst = Tree.new([10,20,30,40,100,500])
+      node = bst.find(500)
+      expect(bst.depth(node)).to eq(2)
+    end
+  end
 end

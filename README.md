@@ -37,7 +37,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#preorder` method
 1. [x] Write `Tree#postorder` method
 1. [ ] Write `Tree#height` method
-1. [ ] Write `Tree#depth` method
+1. [x] Write `Tree#depth` method
 1. [ ] Write `Tree#balanced?` method
 1. [ ] Write `Tree#rebalance` method
 1. [ ] Write `driver.rb` script that does some stuff

@@ -90,6 +90,7 @@ class Tree
   end
 
   def inorder(&block)
+    # inorder = L -> root -> R
     return block_given? ? nil : [] unless @root
 
     def dfs(curr, &block)
@@ -108,6 +109,7 @@ class Tree
   end
 
   def preorder(&block)
+    # preorder = root -> L -> R
     return block_given? ? nil : [] unless @root
 
     def dfs(curr, &block)
@@ -126,6 +128,7 @@ class Tree
   end
 
   def postorder(&block)
+    # postorder = L -> R -> root
     return block_given? ? nil : [] unless @root
 
     def dfs(curr, &block)
@@ -149,8 +152,25 @@ class Tree
   end
 
   def depth(node)
-    # TODO
-    # returns `node`'s depth = #edges in path from `node` to root node
+    # depth = #edges in path from `node` to root node
+    # returns -1 if @root is null or node was not found
+    return -1 unless @root
+
+    curr = @root
+    res = 0
+    while curr
+      if curr == node
+        return res
+      elsif curr < node
+        curr = curr.right
+        res += 1
+      else # curr > node
+        curr = curr.left
+        res += 1
+      end
+    end
+
+    -1
   end
 
   def balanced?
