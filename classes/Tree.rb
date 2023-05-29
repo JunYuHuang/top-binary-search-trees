@@ -208,9 +208,9 @@ class Tree
   end
 
   def rebalance
-    # TODO
-    # rebalance an unbalanced tree
-    # tip: call `#build_tree` method with array returned from a traversal method
+    return if !@root or balanced?
+    @root = build_tree(inorder)
+    nil
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

@@ -338,4 +338,65 @@ RSpec.describe 'Tree class' do
       expect(bst.balanced?).to eq(true)
     end
   end
+
+  # TODO
+  describe "rebalance" do
+    it "does nothing if called on an empty BST" do
+      bst = Tree.new
+      bst.rebalance
+      expect(bst.root).to eq(nil)
+    end
+
+    it "does nothing if called with on an already balanced 1-node sized BST" do
+      bst = Tree.new([1])
+      bst.rebalance
+      expect(bst.root).to eq(1)
+      expect(bst.root.left).to eq(nil)
+      expect(bst.root.right).to eq(nil)
+    end
+
+    it "does nothing if called with on an already balanced 2-node sized BST" do
+      bst = Tree.new([1,2])
+      bst.rebalance
+      expect(bst.root).to eq(1)
+      expect(bst.root.left).to eq(nil)
+      expect(bst.root.right).to eq(2)
+    end
+
+    it "balances the BST if called on an unbalanced 4-node sized BST" do
+      bst = Tree.new([7])
+      bst.insert(5)
+      bst.insert(3)
+      bst.insert(1)
+      expect(bst.balanced?).to eq(false)
+      bst.rebalance
+      expect(bst.balanced?).to eq(true)
+      expect(bst.find(3)).to eq(bst.root)
+    end
+
+    it "balances the BST if called on an unbalanced 5-node sized BST" do
+      bst = Tree.new([9])
+      bst.insert(7)
+      bst.insert(5)
+      bst.insert(3)
+      bst.insert(1)
+      expect(bst.balanced?).to eq(false)
+      bst.rebalance
+      expect(bst.balanced?).to eq(true)
+      expect(bst.find(5)).to eq(bst.root)
+    end
+
+    it "balances the BST if called on an unbalanced 5-node sized BST" do
+      bst = Tree.new([500])
+      bst.insert(100)
+      bst.insert(40)
+      bst.insert(30)
+      bst.insert(20)
+      bst.insert(10)
+      expect(bst.balanced?).to eq(false)
+      bst.rebalance
+      expect(bst.balanced?).to eq(true)
+      expect(bst.find(30)).to eq(bst.root)
+    end
+  end
 end

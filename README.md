@@ -39,7 +39,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#height` method
 1. [x] Write `Tree#depth` method
 1. [x] Write `Tree#balanced?` method
-1. [ ] Write `Tree#rebalance` method
+1. [x] Write `Tree#rebalance` method
 1. [ ] Write `driver.rb` script that does some stuff
 
 ## My TODOs
@@ -109,8 +109,6 @@ rspec Tree.spec.rb
         - parent.right = child
     - else curr is leaf node
       - isLeft? parent.left = null : parent.right = null
-  - rebalance
-    - TODO
 
 ## Misc Notes
 
