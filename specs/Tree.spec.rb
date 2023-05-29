@@ -226,6 +226,44 @@ RSpec.describe 'Tree class' do
     end
   end
 
+  describe "height" do
+    it "returns -1 if called with any node on an empty BST" do
+      bst = Tree.new
+      node = bst.find(0)
+      expect(bst.height(node)).to eq(-1)
+    end
+
+    it "returns -1 if called with a non-existent node on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(8)
+      expect(bst.height(node)).to eq(-1)
+    end
+
+    it "returns 0 if called with a leaf node on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(1)
+      expect(bst.height(node)).to eq(0)
+    end
+
+    it "returns 2 if called with the root node on an 7-node sized perfectly balanced BST with 3 levels" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.root
+      expect(bst.height(node)).to eq(2)
+    end
+
+    it "returns 1 if called with a node with L & R children with no indirect children on an 7-node sized BST" do
+      bst = Tree.new([1,2,3,4,5,6,7])
+      node = bst.find(2)
+      expect(bst.height(node)).to eq(1)
+    end
+
+    it "returns 0 if called with the leaf node with value 500 on an 6-node sized BST" do
+      bst = Tree.new([10,20,30,40,100,500])
+      node = bst.find(500)
+      expect(bst.height(node)).to eq(0)
+    end
+  end
+
   describe "depth" do
     it "returns -1 if called with any node on an empty BST" do
       bst = Tree.new

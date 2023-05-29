@@ -147,13 +147,22 @@ class Tree
   end
 
   def height(node)
-    # TODO
-    # returns `node`'s height = #edges in path from `node` to furthest leaf node
+    # height = #edges in path from `node` to its furthest descendant leaf node
+    return -1 if !@root or !node
+
+    def dfs(root, hei = -1)
+      return hei unless root
+
+      left = dfs(root.left, hei + 1)
+      right = dfs(root.right, hei + 1)
+      [left, right].max
+    end
+
+    [dfs(node.left), dfs(node.right)].max + 1
   end
 
   def depth(node)
     # depth = #edges in path from `node` to root node
-    # returns -1 if @root is null or node was not found
     return -1 unless @root
 
     curr = @root
