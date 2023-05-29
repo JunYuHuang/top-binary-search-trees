@@ -112,11 +112,10 @@ RSpec.describe 'Tree class' do
     end
   end
 
-  # TODO
-  describe "inorder" do
+  describe "preorder" do
     it "returns an empty array if called with no block on an empty BST" do
       bst = Tree.new
-      expect(bst.inorder).to eq([])
+      expect(bst.preorder).to eq([])
     end
 
     it "returns nil if called with a block on an empty BST" do
@@ -130,20 +129,20 @@ RSpec.describe 'Tree class' do
     it "returns the correct array of ordered node values if called with no block on an 7-node sized BST" do
       bst = Tree.new([1,2,3,4,5,6,7])
       expected = [4,2,1,3,6,5,7]
-      expect(bst.inorder).to eq(expected)
+      expect(bst.preorder).to eq(expected)
     end
 
     it "returns the correct array of ordered node values if called with no block on an 6-node sized BST" do
       bst = Tree.new([10,20,30,40,100,500])
       expected = [30,10,20,100,40,500]
-      expect(bst.inorder).to eq(expected)
+      expect(bst.preorder).to eq(expected)
     end
 
     it "returns nil if called with a block on an 6-node sized BST" do
       bst = Tree.new([10,20,30,40,100,500])
       block_res = []
       block_expected = [30,10,20,100,40,500]
-      res = bst.inorder do |node|
+      res = bst.preorder do |node|
         block_res.push(node.data)
       end
       expect(res).to eq(nil)
