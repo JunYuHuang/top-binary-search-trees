@@ -120,7 +120,7 @@ RSpec.describe 'Tree class' do
 
     it "returns nil if called with a block on an empty BST" do
       bst = Tree.new
-      res = bst.level_order do |node|
+      res = bst.preorder do |node|
         node && node.data ? node.data : nil
       end
       expect(res).to eq(nil)
