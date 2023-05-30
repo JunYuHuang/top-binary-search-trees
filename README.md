@@ -1,4 +1,4 @@
-# Binary Search Tree
+# Binary Search Trees
 
 Below is the console output of a `driver.rb` run.
 
@@ -151,36 +151,6 @@ rspec Tree.spec.rb
 - no duplicate values
   - remove duplicate values OR
   - check for existing values before inserting
-- `Tree` class
-  - checks a set for duplicate values before inserting new nodes
-  - constructor(values)
-    - remove all duplicate values from and sort `values`
-    - @`root` = `build_tree(values)`
-  - build_tree(sorted_arr)
-    - recursively build BST from sorted array of ints
-    - returns root node of BST
-  - insert(value)
-    - summary
-      - find a target leaf node or node with 1 child
-      - attach new node to target as target's L or R child
-    - return if `value` already exists in the tree
-    - if @`root` is null,
-      - set @`root` to new node with `value` and return
-    - parent = null
-    - curr = root
-    - while curr is not null
-      - parent = curr
-      - if curr's value < value
-        - curr = curr.right
-      - else curr's value > value (b/c we filtered out duplicates)
-        - curr = curr.left
-    - create new node `new_node` with `value`
-    - if `value` > parent's value
-      - parent.right = `new_node`
-    - else
-      - parent.left = `new_node`
-  - delete(value)
-    - TODO
 
 ## Misc Notes
 
