@@ -40,7 +40,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree#depth` method
 1. [x] Write `Tree#balanced?` method
 1. [x] Write `Tree#rebalance` method
-1. [ ] Write `driver.rb` script that does some stuff
+1. [x] Write `driver.rb` script that does some stuff
 
 ## My TODOs
 
@@ -54,7 +54,7 @@ rspec Tree.spec.rb
 - [x] Implement `Tree#delete` method for deleting nodes with 1 child (left XOR right) only
 - [ ] Implement `Tree#delete` method for deleting nodes with both left and right children
 - [ ] Complete `Tree#replace` helper method (for `Tree#delete` method to use delete nodes with both left and right children)
-- [ ] Update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
+- [x] Update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
 
 ## Planning Notes
 
@@ -89,9 +89,20 @@ rspec Tree.spec.rb
       - parent.right = `new_node`
     - else
       - parent.left = `new_node`
-  - replace(value)
+  - replace(node)
     - helper function used by `delete()` method for deleting nodes that have both L & R children
-    - TODO
+    - returns replacement node for `node` after deletion is done
+    - return nil if node is null or @`root` is null
+    - find next-largest valued node to replace `node`
+      - `replacement` = deepest leftmost non-null child node of `node.right`
+      - `replacement_parent` = direct parent node of node `replacement`
+      - set `replacement_parent`'s left child pointer to null
+    - set `node_left` and `node_right` pointers for `node`'s left and right child nodes respectively
+    - if `replacement` has children of its own,
+      - find replacements for them by calling itself recursively?
+    - point `replacement`'s left & right child pointers to `node_left` and `node_right` respectively
+    - set `node`'s left and right child pointers to null
+    - return node `replacement`
 
   - delete(value)
     - return if @`root` is null
