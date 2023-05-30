@@ -144,10 +144,6 @@ rspec Tree.spec.rb
 - [x] Create a `driver.rb` file at the root directory
 - [x] Update `Node` class to include and use `Comparable` module
 - [x] Fix `Tree#build_tree` method to work
-- [x] Implement `Tree#delete` method for deleting leaf nodes
-- [x] Implement `Tree#delete` method for deleting nodes with 1 child (left XOR right) only
-- [ ] Implement `Tree#delete` method for deleting nodes with both left and right children
-- [ ] Complete `Tree#replace` helper method (for `Tree#delete` method to use delete nodes with both left and right children)
 - [x] Update `driver.rb` to execute [the 8 steps mentioned in the assignment instructions](https://www.theodinproject.com/lessons/ruby-binary-search-trees#tie-it-all-together)
 
 ## Planning Notes
