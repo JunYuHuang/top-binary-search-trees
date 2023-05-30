@@ -1,4 +1,97 @@
-# top-binary-search-trees
+# Binary Search Tree
+
+```
+> 1. Create a binary tree from an array of random numbers
+│           ┌── 97
+│       ┌── 89
+│       │   └── 84
+│   ┌── 77
+│   │   │   ┌── 70
+│   │   └── 68
+│   │       └── 52
+└── 48
+    │       ┌── 36
+    │   ┌── 30
+    │   │   └── 27
+    └── 20
+        │   ┌── 17
+        └── 7
+
+> 2. Confirm that the tree is balanced by calling `Tree#balanced?`
+Is the BST balanced? true
+
+> 3. Print all elements in level, pre, post, and in order
+BST level order: [48, 20, 77, 7, 30, 68, 89, 17, 27, 36, 52, 70, 84, 97]
+BST preorder:    [48, 20, 7, 17, 30, 27, 36, 77, 68, 52, 70, 89, 84, 97]
+BST postorder:   [17, 7, 27, 36, 30, 20, 52, 70, 68, 84, 97, 89, 77, 48]
+BST inorder:     [7, 17, 20, 27, 30, 36, 48, 52, 68, 70, 77, 84, 89, 97]
+
+> 4. Unbalance the tree by adding several numbers > 100
+│                   ┌── 197
+│               ┌── 192
+│               │   │   ┌── 176
+│               │   │   │   │   ┌── 168
+│               │   │   │   └── 164
+│               │   │   │       │   ┌── 156
+│               │   │   │       └── 144
+│               │   │   │           └── 135
+│               │   └── 128
+│               │       └── 102
+│           ┌── 97
+│       ┌── 89
+│       │   └── 84
+│   ┌── 77
+│   │   │   ┌── 70
+│   │   └── 68
+│   │       └── 52
+└── 48
+    │       ┌── 36
+    │   ┌── 30
+    │   │   └── 27
+    └── 20
+        │   ┌── 17
+        └── 7
+
+> 5. Confirm that the tree is unbalanced by calling `Tree#balanced?`
+Is the BST unbalanced? true
+
+> 6. Balance the tree by calling `Tree#rebalance`
+│               ┌── 197
+│           ┌── 192
+│           │   └── 176
+│       ┌── 168
+│       │   │   ┌── 164
+│       │   └── 156
+│   ┌── 144
+│   │   │       ┌── 135
+│   │   │   ┌── 128
+│   │   └── 102
+│   │       │   ┌── 97
+│   │       └── 89
+└── 84
+    │           ┌── 77
+    │       ┌── 70
+    │   ┌── 68
+    │   │   │   ┌── 52
+    │   │   └── 48
+    └── 36
+        │       ┌── 30
+        │   ┌── 27
+        └── 20
+            │   ┌── 17
+            └── 7
+
+> 7. Confirm that the tree is balanced by calling `Tree#balanced?`
+Is the BST balanced? true
+
+> 8. Print all elements in level, pre, post, and in order
+BST level order: [84, 36, 144, 20, 68, 102, 168, 7, 27, 48, 70, 89, 128, 156, 192, 17, 30, 52, 77, 97, 135, 164, 176, 197]
+BST preorder:    [84, 36, 20, 7, 17, 27, 30, 68, 48, 52, 70, 77, 144, 102, 89, 97, 128, 135, 168, 156, 164, 192, 176, 197]
+BST postorder:   [17, 7, 30, 27, 20, 52, 48, 77, 70, 68, 36, 97, 89, 135, 128, 102, 164, 156, 176, 197, 192, 168, 144, 84]
+BST inorder:     [7, 17, 20, 27, 30, 36, 48, 52, 68, 70, 77, 84, 89, 97, 102, 128, 135, 144, 156, 164, 168, 176, 192, 197]
+```
+
+The above is the console output of a `driver.rb` run.
 
 ## Quick Start
 
