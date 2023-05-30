@@ -53,58 +53,33 @@ class Tree
     nil
   end
 
-  # helper method for `Tree#delete` method
-  def replace(node)
-    return if !root or !@unique.include?(node.data)
+  # helper method for `Tree#delete`
+  def delete_node(root, value)
+    # modified solution from https://leetcode.com/problems/delete-node-in-a-bst/discuss/821420/Python-O(h)-solution-explained
+    # returns the root of the new possibly modified BST
+    return nil unless root
 
-    # TODO
+    if root == value
+      return root.left unless root.right
+      return root.right unless root.left
+
+      min_successor = root.right
+      while min_successor.left
+        min_successor = min_successor.left
+      end
+      root.data = min_successor.data
+      root.right = delete_node(root.right, root.data)
+    elsif root > value
+      root.left = delete_node(root.left, value)
+    else # root < value
+      root.right = delete_node(root.right, value)
+    end
+
+    root
   end
 
   def delete(value)
-    return unless @root
-
-    parent = nil
-    curr = @root
-    while curr
-      if curr == value
-        break
-      elsif curr < value
-        parent = curr
-        curr = curr.right
-      else # curr > value
-        parent = curr
-        curr = curr.left
-      end
-    end
-
-    return unless curr
-
-    if curr.left && curr.right
-      replace(curr)
-    elsif curr.left
-      child = curr.left
-      if curr == @root
-        @root = child
-      elsif parent
-        parent > curr ? parent.left = child : parent.right = child
-      end
-      curr.left = nil
-    elsif curr.right
-      child = curr.right
-      if curr == @root
-        @root = child
-      elsif parent
-        parent > curr ? parent.left = child : parent.right = child
-      end
-      curr.right = nil
-    else # curr is leaf node
-      if curr == @root
-        @root = nil
-      else
-        parent > curr ? parent.left = nil : parent.right = nil
-      end
-    end
-
+    @root = delete_node(@root, value)
     @unique.delete(value)
     nil
   end

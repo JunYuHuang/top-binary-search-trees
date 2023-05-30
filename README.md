@@ -124,7 +124,7 @@ rspec Tree.spec.rb
 1. [x] Write `Tree` class
 1. [x] Write `Tree#build_tree` method
 1. [x] Write `Tree#insert` method
-1. [ ] Write `Tree#delete` method
+1. [x] Write `Tree#delete` method
 1. [x] Write `Tree#find` method
 1. [x] Write `Tree#level_order` method
 1. [x] Write `Tree#inorder` method

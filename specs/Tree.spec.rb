@@ -36,13 +36,13 @@ RSpec.describe 'Tree class' do
       expect(bst.root.right).to eq(nil)
     end
 
-    it "inserts the node correctly if called with 7 on a 5-node size BST" do
+    it "inserts the node correctly if called with 7 on a 5-node sized BST" do
       bst = Tree.new([1,2,3,4,5])
       bst.insert(7)
       expect(bst.root.right.right.right).to eq(7)
     end
 
-    it "inserts the node correctly if called with 40 on a 5-node size BST" do
+    it "inserts the node correctly if called with 40 on a 5-node sized BST" do
       bst = Tree.new([10,20,30,100,500])
       bst.insert(40)
       expect(bst.root.right.left).to eq(40)
@@ -75,7 +75,7 @@ RSpec.describe 'Tree class' do
       expect(bst.unique.include?(1)).to eq(false)
     end
 
-    it "deletes the root node correctly if called with a value of a node with a right child only on a 2-node size BST" do
+    it "deletes the root node correctly if called with a value of a node with a right child only on a 2-node sized BST" do
       bst = Tree.new([1,3])
       bst.delete(1)
       expect(bst.root).to eq(3)
@@ -85,7 +85,7 @@ RSpec.describe 'Tree class' do
       expect(bst.unique.include?(1)).to eq(false)
     end
 
-    it "deletes the node correctly if called with a value of a node with a right child only on a 5-node size BST" do
+    it "deletes the node correctly if called with a value of a node with a right child only on a 5-node sized BST" do
       bst = Tree.new([1,3,5,7,9])
       bst.delete(1)
       expect(bst.root.left).to eq(3)
@@ -95,7 +95,7 @@ RSpec.describe 'Tree class' do
       expect(bst.unique.include?(1)).to eq(false)
     end
 
-    it "deletes the root node correctly if called with a value of a node with a left child only on a 2-node size BST" do
+    it "deletes the root node correctly if called with a value of a node with a left child only on a 2-node sized BST" do
       bst = Tree.new([3])
       bst.insert(1)
       bst.delete(3)
@@ -106,7 +106,7 @@ RSpec.describe 'Tree class' do
       expect(bst.unique.include?(3)).to eq(false)
     end
 
-    it "deletes the node correctly if called with a value of a node with a left child only on a 5-node size BST" do
+    it "deletes the node correctly if called with a value of a node with a left child only on a 5-node sized BST" do
       bst = Tree.new([1,3,5,7])
       bst.insert(0)
       expect(bst.root.left.left).to eq(0)
@@ -118,7 +118,27 @@ RSpec.describe 'Tree class' do
       expect(bst.unique.include?(1)).to eq(false)
     end
 
-    # TODO - tests for deleting nodes with both L & R children
+    it "deletes the node correctly if called with a value of a node that has both left and right children on a 6-node sized BST" do
+      bst = Tree.new([1,3,5,7,9,11])
+      bst.delete(9)
+      expect(bst.root.right).to eq(11)
+      expect(bst.root.right.left).to eq(7)
+      expect(bst.root.right.right).to eq(nil)
+      expect(bst.unique.size).to eq(5)
+      expect(bst.unique.include?(9)).to eq(false)
+    end
+
+    it "deletes the root node correctly if called with a value of a node that has both left and right children on a 6-node sized BST" do
+      bst = Tree.new([1,3,5,7,9,11])
+      bst.delete(5)
+      expect(bst.root).to eq(7)
+      expect(bst.root.left).to eq(1)
+      expect(bst.root.right).to eq(9)
+      expect(bst.root.right.left).to eq(nil)
+      expect(bst.root.right.right).to eq(11)
+      expect(bst.unique.size).to eq(5)
+      expect(bst.unique.include?(5)).to eq(false)
+    end
   end
 
   describe "find" do
