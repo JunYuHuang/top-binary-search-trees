@@ -1,6 +1,9 @@
 # Binary Search Tree
 
+Below is the console output of a `driver.rb` run.
+
 ```
+$ ruby driver.rb
 > 1. Create a binary tree from an array of random numbers
 │           ┌── 97
 │       ┌── 89
@@ -91,8 +94,6 @@ BST postorder:   [17, 7, 30, 27, 20, 52, 48, 77, 70, 68, 36, 97, 89, 135, 128, 1
 BST inorder:     [7, 17, 20, 27, 30, 36, 48, 52, 68, 70, 77, 84, 89, 97, 102, 128, 135, 144, 156, 164, 168, 176, 192, 197]
 ```
 
-The above is the console output of a `driver.rb` run.
-
 ## Quick Start
 
 ### Requirements
@@ -182,49 +183,8 @@ rspec Tree.spec.rb
       - parent.right = `new_node`
     - else
       - parent.left = `new_node`
-  - replace(node)
-    - helper function used by `delete()` method for deleting nodes that have both L & R children
-    - returns replacement node for `node` after deletion is done
-    - return nil if node is null or @`root` is null
-    - find next-largest valued node to replace `node`
-      - `replacement` = deepest leftmost non-null child node of `node.right`
-      - `replacement_parent` = direct parent node of node `replacement`
-      - set `replacement_parent`'s left child pointer to null
-    - set `node_left` and `node_right` pointers for `node`'s left and right child nodes respectively
-    - if `replacement` has children of its own,
-      - find replacements for them by calling itself recursively?
-    - point `replacement`'s left & right child pointers to `node_left` and `node_right` respectively
-    - set `node`'s left and right child pointers to null
-    - return node `replacement`
-
   - delete(value)
-    - return if @`root` is null
-    - parent = null
-    - curr = @`root`
-    - while curr is not null
-      - parent = curr
-      - if curr's value == value
-        - break out of loop
-      - else if curr's value < value
-        - curr = curr.right
-      - else curr's value > value
-        - curr = curr.left
-    - return if curr is null (means didn't find value)
-    - if curr has L & R children
-      - TODO
-      - call `replace(curr)` on it
-    - else if curr has either L XOR C child only
-      - save pointer `child` to curr's L or R child
-      - curr.right = null
-      - if parent's value > child's value
-        - parent.left = child
-      - else
-        - parent.right = child
-    - else curr is leaf node
-      - if parent's value > curr's value
-        - parent.left = null
-      - else
-        - parent.right = null
+    - TODO
 
 ## Misc Notes
 
